@@ -1,0 +1,6 @@
+path: /content/road_sign_project/convert2Yolo/RoadSign
+train: images/train
+val: images/val
+test: images/test
+nc: 4
+names: ['trafficlight', 'speedlimit', 'crosswalk', 'stop']
