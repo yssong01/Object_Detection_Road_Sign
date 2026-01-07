@@ -86,11 +86,10 @@
 
 학습에 전혀 사용되지 않은 테스트 데이터 16장을 샘플링하여 4행 4열 그리드로 추론 결과를 시각화하였습니다.
 
-![YOLOv8 Road Sign Detection Results]
+*YOLOv8 Road Sign Detection: 16 Test Samples*
 
 <img width="7141" height="7359" alt="test" src="https://github.com/user-attachments/assets/74afba9a-29e7-4779-9e64-482be2501914" />
 
-*YOLOv8 Road Sign Detection: 16 Test Samples*
 
 ### 🎯 주요 성능 지표
 
