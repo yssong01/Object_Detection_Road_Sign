@@ -38,7 +38,7 @@ YOLOv8(You Only Look Once v8을 선정하여 도로 표지판 이미지들의 �
 
 3. **데이터 무작위 분할**
    - Random Seed: `42` # <= 기술적 재현성 확보와 문화적 경의를 표하기 위해 가장 많이 사용하는 숫자를 선택함.
-   - ✍️분할 비율: Train : Val : Test = 7 : 1 : 2 -> Train(613개), Val(87개), Test(177개) of total 877개
+   - ✍️분할 비율 = Train : Val : Test = 7 : 1 : 2 -> Train(613개), Val(87개), Test(177개) of total 877개
 
 4. **모델 학습**
    - 베이스 모델: `yolov8s.pt` (Small)
