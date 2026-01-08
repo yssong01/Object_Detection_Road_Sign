@@ -225,7 +225,7 @@ yolo detect predict \
 
 ## Acknowledgments
 
-- **YOLOv8**: [convert2Yolo](https://github.com/ssaru/convert2Yolo.git)
+- **YOLOv8**: [convert2Yolo.git](https://github.com/ssaru/convert2Yolo.git)
 - **Dataset**: [Kaggle Road Sign Detection Dataset](https://www.kaggle.com/datasets/andrewmvd/road-sign-detection)
 - **Framework**: [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics)
 - **Platform**: Google Colab & Google Drive
