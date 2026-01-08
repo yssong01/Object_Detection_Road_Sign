@@ -17,24 +17,6 @@ YOLOv8(You Only Look Once v8을 선정하여 도로 표지판 이미지들의 �
 - 고해상도 이미지에서도 매우 높은 FPS(초당 프레임 수)를 보장하여 자율주행과 같은 실시간 응답이 필수적인 시스템에 가장 적합한 SOTA(State-of-the-Art) 모델이다.
 
 2. **강력한 데이터 증강(Augmentation)**
-- Mosaic, Blur, Mixup 등 물리적으로 발생할 수 있는 다양한 외부 환경 변화(조도, 노이즈, 각도)를 학습 데이터에 '자동으로 반영하여' 모델의 탄력적 고효율 대응력(Robustness, 강건성 🚦 Road Sign Detection Project
-
-**YOLOv8(You Only Look Once v8)을 이용한 딥러닝 기반 해외 도로 표지판 4종 실시간 탐지 및 통계적 성능 분석**
-
-- 본 프로젝트에서는 Kaggle의 Road Sign 데이터셋을 활용하여 주요 표지판을 정밀하게 탐지하고 학습 결과를 테스트했습니다.
-
-- **Dataset**: [Kaggle Road Sign Detection Dataset](https://www.kaggle.com/datasets/andrewmvd/road-sign-detection)
-
----
-
-## 1. YOLOv8 선택 이유
-
-YOLOv8(You Only Look Once v8을 선정하여 도로 표지판 이미지들의 학습을 진행한 이유:
-
-1. **실시간 처리 최적화**
-- 고해상도 이미지에서도 매우 높은 FPS(초당 프레임 수)를 보장하여 자율주행과 같은 실시간 응답이 필수적인 시스템에 가장 적합한 SOTA(State-of-the-Art) 모델이다.
-
-2. **강력한 데이터 증강(Augmentation)**
 - Mosaic, Blur, Mixup 등 물리적으로 발생할 수 있는 다양한 외부 환경 변화(조도, 노이즈, 각도)를 학습 데이터에 '자동으로 반영하여' 모델의 탄력적 고효율 대응력(Robustness, 강건성)을 극대화한다.
 
 3. **체계적인 사후 분석**
