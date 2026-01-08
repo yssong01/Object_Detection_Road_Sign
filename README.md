@@ -2,10 +2,10 @@
 
 **YOLOv8(You Only Look Once v8)을 이용한 딥러닝 기반 해외 도로 표지판 4종 실시간 탐지 및 통계적 성능 분석**
 
-- 본 프로젝트에서는 Kaggle의 Road Sign 데이터셋을 활용하여 주요 표지판을 정밀하게 탐지하고 학습 결과를 테스트했습니다.
+- 본 프로젝트에서는 Kaggle의 Road Sign 데이터셋을 활용하여 주요 표지판을 정밀하게 탐지하고 학습 결과를 테스트했다.
 
 - **Dataset**: [Kaggle Road Sign Detection Dataset](https://www.kaggle.com/datasets/andrewmvd/road-sign-detection)
-- 총 877개의 이미지 파일
+- 이미지 파일 : 총 877개
 
 ---
 
@@ -14,7 +14,7 @@
 YOLOv8(You Only Look Once v8을 선정하여 도로 표지판 이미지들의 학습을 진행한 이유:
 
 1. **실시간 처리 최적화**
-- 고해상도 이미지에서도 매우 높은 FPS(초당 프레임 수)를 보장하여 자율주행과 같은 실시간 응답이 필수적인 시스템에 가장 적합한 SOTA(State-of-the-Art) 모델이다.
+- 고해상도 이미지에서도 매우 높은 FPS(초당 프레임 수)를 보장하여 자율주행과 같은 실시간 응답이 필수적인 시스템에 가장 적합한 모델이다.
 
 2. **강력한 데이터 증강(Augmentation)**
 - Mosaic, Blur, Mixup 등 물리적으로 발생할 수 있는 다양한 외부 환경 변화(조도, 노이즈, 각도)를 학습 데이터에 '자동으로 반영하여' 모델의 탄력적 고효율 대응력(Robustness, 강건성)을 극대화한다.
@@ -24,9 +24,7 @@ YOLOv8(You Only Look Once v8을 선정하여 도로 표지판 이미지들의 �
 
 ---
 
-## 2. 작업 흐름 (Workflow)
-
-### 상세 프로세스
+## 2. 작업 상세 프로세스
 
 1. **환경 구성**
    - Google Colab (T4 GPU) 환경
@@ -60,7 +58,7 @@ YOLOv8(You Only Look Once v8을 선정하여 도로 표지판 이미지들의 �
 <img width="7470" height="3686" alt="results" src="https://github.com/user-attachments/assets/76546646-e3d8-42e8-b2e4-aa5487179d36" />
 
 
-### 손실 함수 (Loss Functions)
+### 손실 함수
 
 | Metric | 초기값 | 최종값 | 분석 |
 |--------|--------|--------|------|
@@ -95,7 +93,7 @@ YOLOv8(You Only Look Once v8을 선정하여 도로 표지판 이미지들의 �
 <img width="7141" height="7359" alt="test" src="https://github.com/user-attachments/assets/74afba9a-29e7-4779-9e64-482be2501914" />
 
 
-### 🎯 주요 성능 지표
+### 주요 성능 지표
 
 #### 완벽한 탐지 사례
 - **road103.jpg**: `speedlimit` 신뢰도 **1.00** (100%)
@@ -112,7 +110,7 @@ YOLOv8(You Only Look Once v8을 선정하여 도로 표지판 이미지들의 �
 - **road127.jpg**: `trafficlight` (0.82) + `crosswalk` (0.83) 동시 탐지
 - **road170.jpg**: `trafficlight` (0.88) + `crosswalk` (0.96) + `trafficlight` (0.44) 3개 객체 탐지
 
-### 📊 클래스별 성능 요약
+### 클래스별 성능 요약
 
 | 클래스 | 평균 신뢰도 | 탐지 성공률 | 특이사항 |
 |--------|----------------|-------------|----------|
@@ -174,7 +172,7 @@ yolo detect predict \
 
 ---
 
-## 📊 성능 요약표
+## 성능 요약표
 
 | 항목 | 지표 | 값 |
 |------|------|-----|
