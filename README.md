@@ -1,26 +1,48 @@
-# 🚦 Road Sign Detection Project (using YOLOv8s)
+# 🚦 Road Sign Detection Project
 
-**딥러닝 기반 도로 표지판 4종 실시간 탐지 및 통계적 성능 분석**
+**YOLOv8(You Only Look Once v8)을 이용한 딥러닝 기반 해외 도로 표지판 4종 실시간 탐지 및 통계적 성능 분석**
 
-본 연습 프로젝트에서는 Kaggle의 Road Sign 데이터셋을 활용하여 주요 표지판을 정밀하게 탐지하고 학습 결과를 테스트했습니다.
+- 본 프로젝트에서는 Kaggle의 Road Sign 데이터셋을 활용하여 주요 표지판을 정밀하게 탐지하고 학습 결과를 테스트했습니다.
 
----
-
-## 1. YOLOv8 채택 이유 (Why YOLOv8?)
-
-본 프로젝트에서 **YOLOv8(You Only Look Once v8)**을 선정하여 학습을 진행한 이유는 다음과 같습니다:
-
-- **실시간 처리 최적화**: 고해상도 이미지에서도 매우 높은 FPS(초당 프레임 수)를 보장하여 자율주행과 같은 실시간 응답이 필수적인 시스템에 가장 적합한 SOTA(State-of-the-Art) 모델입니다.
-
-- **강력한 데이터 증강(Augmentation)**: Mosaic, Blur, Mixup 등 물리적으로 발생할 수 있는 다양한 외부 환경 변화(조도, 노이즈, 각도)를 학습 데이터에 자동으로 반영하여 모델의 강건성(Robustness)을 극대화합니다.
-
-- **체계적인 사후 분석**: 학습 과정의 모든 수치를 CSV로 기록하고 시각화 도구를 제공하여, 단순 학습을 넘어 지표의 통계적 유의성을 검토하기 용이합니다.
+- **Dataset**: [Kaggle Road Sign Detection Dataset](https://www.kaggle.com/datasets/andrewmvd/road-sign-detection)
+- 총 877개의 이미지 파일
 
 ---
 
-## 2. 코드 흐름 및 시스템 구조 (Workflow)
+## 1. YOLOv8 선택 이유
 
-전체 데이터 처리 파이프라인은 아래와 같이 정밀하게 설계되었습니다:
+YOLOv8(You Only Look Once v8을 선정하여 도로 표지판 이미지들의 학습을 진행한 이유:
+
+1. **실시간 처리 최적화**
+- 고해상도 이미지에서도 매우 높은 FPS(초당 프레임 수)를 보장하여 자율주행과 같은 실시간 응답이 필수적인 시스템에 가장 적합한 SOTA(State-of-the-Art) 모델이다.
+
+2. **강력한 데이터 증강(Augmentation)**
+- Mosaic, Blur, Mixup 등 물리적으로 발생할 수 있는 다양한 외부 환경 변화(조도, 노이즈, 각도)를 학습 데이터에 '자동으로 반영하여' 모델의 탄력적 고효율 대응력(Robustness, 강건성 🚦 Road Sign Detection Project
+
+**YOLOv8(You Only Look Once v8)을 이용한 딥러닝 기반 해외 도로 표지판 4종 실시간 탐지 및 통계적 성능 분석**
+
+- 본 프로젝트에서는 Kaggle의 Road Sign 데이터셋을 활용하여 주요 표지판을 정밀하게 탐지하고 학습 결과를 테스트했습니다.
+
+- **Dataset**: [Kaggle Road Sign Detection Dataset](https://www.kaggle.com/datasets/andrewmvd/road-sign-detection)
+
+---
+
+## 1. YOLOv8 선택 이유
+
+YOLOv8(You Only Look Once v8을 선정하여 도로 표지판 이미지들의 학습을 진행한 이유:
+
+1. **실시간 처리 최적화**
+- 고해상도 이미지에서도 매우 높은 FPS(초당 프레임 수)를 보장하여 자율주행과 같은 실시간 응답이 필수적인 시스템에 가장 적합한 SOTA(State-of-the-Art) 모델이다.
+
+2. **강력한 데이터 증강(Augmentation)**
+- Mosaic, Blur, Mixup 등 물리적으로 발생할 수 있는 다양한 외부 환경 변화(조도, 노이즈, 각도)를 학습 데이터에 '자동으로 반영하여' 모델의 탄력적 고효율 대응력(Robustness, 강건성)을 극대화한다.
+
+3. **체계적인 사후 분석**
+- 학습 과정의 모든 수치를 CSV로 기록하고 시각화 도구를 제공하여, 학습 지표의 통계적 유의성을 검토하기 용이하다.
+
+---
+
+## 2. 작업 흐름 (Workflow)
 
 ### 상세 프로세스
 
@@ -33,8 +55,8 @@
    - 좌표 정규화: `[x_c, y_c, w, h]` (0~1 상대값)
 
 3. **데이터 무작위 분할**
-   - Random Seed: `42` # <= 가장 일반적으로 사용되는 선택지
-   - 분할 비율: Train:Val:Test = **7:1:2**
+   - Random Seed: `42` # <= 기술적 재현성 확보와 문화적 경의를 표하기 위해 가장 많이 사용하는 숫자를 선택함.
+   - ✍️분할 비율: Train : Val : Test = 7 : 1 : 2 -> Train(613개), Val(87개), Test(177개) of total 877개
 
 4. **모델 학습**
    - 베이스 모델: `yolov8s.pt` (Small)
@@ -42,14 +64,14 @@
    - Batch Size: Auto
 
 5. **성능 지표 가공**
-   - 출력물: `results.png`, `test.png`
-   - 커스터마이징: Epoch 간격 10, Y축 고정
+   - 결과물: `results.png` -> *Road Sign Detection: Customized Training Metrics (Epoch Interval: 10)*
+   - 이미지 테스트: `test.png` -> *YOLOv8 Road Sign Detection: 16 Test Samples*
 
 ---
 
 ## 3. 학습 결과 및 물리적 지표 분석
 
-모델의 수렴 성능을 객관적으로 비교하기 위해 X축 10단위 Epoch 및 Y축 최대값 1.0 고정 설정을 적용하여 시각화하였습니다.
+모델의 수렴 성능을 객관적으로 비교한 그래프
 
 *Road Sign Detection: Customized Training Metrics (Epoch Interval: 10)*
 
@@ -61,10 +83,10 @@
 | Metric | 초기값 | 최종값 | 분석 |
 |--------|--------|--------|------|
 | **Box Loss** | 0.85 | 0.50 | 학습 초기(1~5 Epoch) 급격 하강, 10 Epoch 이후 안정 구간 진입 |
-| **Classification Loss** | 3.5 | 0.4 | 클래스 분류 능력 지속적 향상 |
-| **DFL Loss** | 1.2 | 0.85 | Bounding Box 위치 정확도 개선 |
+| **Classification Loss** | 3.50 | 0.40 | 클래스 분류 능력 지속적 향상 |
+| **DFL Loss** | 1.20 | 0.85 | Bounding Box 위치 정확도 개선 |
 
-### 정확도 지표 (Accuracy Metrics)
+### 정확도 지표
 
 | Metric | 초기값 | 최종값 | 분석 |
 |--------|--------|--------|------|
@@ -75,10 +97,10 @@
 
 ### 핵심 인사이트
 
-- **과적합 방지**: Train/Val Loss가 함께 감소하며 과적합 없이 안정적으로 수렴
-- **빠른 학습**: 초기 10 Epoch 내 급격한 성능 향상
-- **높은 재현율**: Recall 0.90+ 달성으로 표지판 미탐지 최소화
-- **정밀 탐지**: Precision 0.95+ 달성으로 오탐지 억제
+- **과적합 방지** : Train/Val Loss가 함께 감소하며 과적합 없이 안정적으로 수렴함.
+- **빠른 학습** : 초기 10 Epoch 이내에 급격한 성능 향상.
+- **높은 재현율** : Recall 0.90+ 달성으로 표지판 미탐지 최소화.
+- **정밀 탐지** : Precision 0.95+ 달성으로 오탐지 억제.
 
 ---
 
@@ -110,7 +132,7 @@
 
 ### 📊 클래스별 성능 요약
 
-| 클래스 | 평균 Confidence | 탐지 성공률 | 특이사항 |
+| 클래스 | 평균 신뢰도 | 탐지 성공률 | 특이사항 |
 |--------|----------------|-------------|----------|
 | Speed Limit | 0.90+ | 100% | 원형 형태 완벽 인식 |
 | Crosswalk | 0.85+ | 100% | 삼각형 형태 정확 탐지 |
@@ -203,6 +225,7 @@ yolo detect predict \
 
 ## Acknowledgments
 
+- **YOLOv8**: [convert2Yolo](https://github.com/ssaru/convert2Yolo.git)
 - **Dataset**: [Kaggle Road Sign Detection Dataset](https://www.kaggle.com/datasets/andrewmvd/road-sign-detection)
 - **Framework**: [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics)
 - **Platform**: Google Colab & Google Drive
