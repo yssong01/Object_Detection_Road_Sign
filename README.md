@@ -1,4 +1,4 @@
-# 🚦 Road Sign Detection Project
+# 🚦 Detection Project - Road Sign
 
 **YOLOv8(You Only Look Once v8)을 이용한 딥러닝 기반 해외 도로 표지판 4종 실시간 탐지 및 통계적 성능 분석**
 
